@@ -16,7 +16,7 @@ export function Header() {
     } = useContext(PatientInfoContext);
     return (
         <div className="header">
-            <div>
+            <div className="header__responsive-settings">
                 <div>
                     <img className="header__open" src={openEyeIcon} alt="open eye icon" />
                     <img className="header__image header__closed" src={crossedEyeIcon} alt="eye icon crossed out" />
@@ -33,12 +33,14 @@ export function Header() {
                     </div>
                 </div>
             </div>
-            <input id="header__input" onChange={(e) => { filterPatient(e.target.value) }} />
-            <div className="header__dropdown">
-                <button className="header__dropbtn">Search by</button>
-                <div className="header__dropdown-content">
-                    <button className={filters === 'arrhythmias' ? "header__dropdown-buttons header__active-filter" : "header__dropdown-buttons"} onClick={() => { updateFilter('arrhythmias') }}>Arrhythmias</button>
-                    <button className={filters === 'name' ? "header__dropdown-buttons header__active-filter" : "header__dropdown-buttons"} onClick={() => { updateFilter('name') }}>Patient Name</button>
+            <div id="header__search">
+                <input id="header__input" onChange={(e) => { filterPatient(e.target.value) }} />
+                <div className="header__dropdown">
+                    <button className="header__dropbtn">Search by</button>
+                    <div className="header__dropdown-content">
+                        <button className={filters === 'arrhythmias' ? "header__dropdown-buttons header__active-filter" : "header__dropdown-buttons"} onClick={() => { updateFilter('arrhythmias') }}>Arrhythmias</button>
+                        <button className={filters === 'name' ? "header__dropdown-buttons header__active-filter" : "header__dropdown-buttons"} onClick={() => { updateFilter('name') }}>Patient Name</button>
+                    </div>
                 </div>
             </div>
         </div >
